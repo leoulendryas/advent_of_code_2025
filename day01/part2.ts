@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 
-const input = readFileSync("day01/input.txt", "utf8");
+const input = readFileSync("input.txt", "utf8");
 const paths = input.trim().split("\n");
 
 let start = 50;
