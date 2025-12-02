@@ -1,0 +1,1 @@
+/home/leoul/Downloads/aoc-2025/day02/target/debug/day02: /home/leoul/Downloads/aoc-2025/day02/src/first.rs /home/leoul/Downloads/aoc-2025/day02/src/main.rs /home/leoul/Downloads/aoc-2025/day02/src/second.rs
