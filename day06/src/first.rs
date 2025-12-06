@@ -30,7 +30,7 @@ pub fn calculate_columns(data_rows: Vec<Vec<i128>>, operations: Vec<char>) -> Re
 }
 
 
-pub fn second() {
+pub fn first() {
     let file = std::fs::read_to_string("input.txt")
         .expect("can not read file");
 
