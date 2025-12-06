@@ -1,18 +1,10 @@
 use std::num::ParseIntError; 
 
 pub fn calculate_columns(data_rows: Vec<Vec<i128>>, operations: Vec<char>) -> Result<Vec<i128>, String> {
-    if data_rows.is_empty() || operations.is_empty() {
-        return Err("Input data or operations are empty.".to_string());
-    }
 
     let num_columns = data_rows[0].len();
     let num_rows = data_rows.len();
     let mut results = Vec::new();
-
-    if operations.len() != num_columns {
-        return Err(format!("Mismatch: {} operations found, but data has {} columns.", 
-                            operations.len(), num_columns));
-    }
 
     for col_index in 0..num_columns {
         let op = operations[col_index];
@@ -38,18 +30,13 @@ pub fn calculate_columns(data_rows: Vec<Vec<i128>>, operations: Vec<char>) -> Re
 }
 
 
-pub fn first() {
+pub fn second() {
     let file = std::fs::read_to_string("input.txt")
         .expect("can not read file");
 
     let input: Vec<&str> = file.trim().split('\n').collect();
 
     let len = input.len();
-    
-    if len < 2 {
-        eprintln!("Error: Input file must contain at least one data row and one operation row.");
-        return;
-    }
 
     let operations_str = input[len - 1];
     let data_lines = &input[0..len - 1];
@@ -72,10 +59,6 @@ pub fn first() {
         .collect();
     
     let first_row_len = data_rows.get(0).map_or(0, |r| r.len());
-    if data_rows.iter().any(|r| r.len() != first_row_len) {
-        eprintln!("Error: All data rows must contain the same number of columns.");
-        return;
-    }
 
     match calculate_columns(data_rows, operations) {
         Ok(final_results) => {
@@ -104,7 +87,7 @@ pub fn first() {
             println!("{} = {}", equation, grand_total);
         },
         Err(e) => {
-            eprintln!("❌ Calculation Error: {}", e);
+            eprintln!("Calculation Error: {}", e);
         }
     }
 }
